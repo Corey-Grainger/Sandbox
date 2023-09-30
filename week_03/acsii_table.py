@@ -7,6 +7,7 @@ LOWER_BOUND = 33
 UPPER_BOUND = 127
 NUMBER_OF_ACSII_CHARACTERS = 94
 
+
 def main():
     """Displays the ACSII value for an input character or the character for an input ACSII value."""
     print(MENU)
@@ -41,10 +42,10 @@ def get_character_from_valid_acsii_code(lower_bound, upper_bound):
 
 
 def print_acsii_character_table():
-    number_of_columns = int(input("How many columns (1-94): "))
-    while number_of_columns < 1 or number_of_columns > 94:
+    number_of_columns = int(input("How many columns (1-95): "))
+    while number_of_columns < 1 or number_of_columns > 95:
         print("Invalid number of columns")
-        number_of_columns = int(input("How many columns (1-94): "))
+        number_of_columns = int(input("How many columns (1-95): "))
     for column, i in enumerate(range(33, 128), 1):
         if column % number_of_columns == 0 or column == 95:
             end_character = "\n"
