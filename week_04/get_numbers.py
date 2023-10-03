@@ -1,5 +1,6 @@
 
 def main():
+    """Square a list of input numbers and print it"""
     numbers = get_numbers()
     square_numbers(numbers)
     display_numbers(numbers)
@@ -14,11 +15,13 @@ def get_numbers():
 
 
 def square_numbers(numbers):
+    """Square a list of numbers."""
     for i, number in enumerate(numbers):
         numbers[i] = number ** 2
 
 
 def display_numbers(numbers):
+    """Print a list of numbers."""
     print("..".join(str(number) for number in sorted(numbers)))
 
 
