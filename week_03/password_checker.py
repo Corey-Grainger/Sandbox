@@ -9,7 +9,7 @@ MIN_LOWERCASE = 1
 MIN_UPPERCASE = 1
 MIN_DIGIT = 1
 MIN_SPECIAL = 1
-SPECIAL_CHARS_REQUIRED = True
+IS_SPECIAL_CHARACTER_REQUIRED = True
 SPECIAL_CHARACTERS = "!@#$%^&*()_-=+`~,./'[]<>?{}|\\"
 
 
@@ -20,11 +20,11 @@ def main():
     print("\t1 or more uppercase characters")
     print("\t1 or more lowercase characters")
     print("\t1 or more numbers")
-    if SPECIAL_CHARS_REQUIRED:
+    if IS_SPECIAL_CHARACTER_REQUIRED:
         print(f"\tand 1 or more special characters: {SPECIAL_CHARACTERS}")
     password = input("> ")
     while not is_valid_password(password, MIN_LENGTH, MAX_LENGTH, MIN_UPPERCASE, MIN_LOWERCASE, MIN_DIGIT, MIN_SPECIAL,
-                                SPECIAL_CHARS_REQUIRED, SPECIAL_CHARACTERS):
+                                IS_SPECIAL_CHARACTER_REQUIRED, SPECIAL_CHARACTERS):
         print("Invalid password!")
         password = input("> ")
     print(f"Your {len(password)}-character password is valid: {password}")
@@ -33,24 +33,24 @@ def main():
 def is_valid_password(password, min_length=8, max_length=20, min_uppercase=1, min_lowercase=1, min_digit=1,
                       min_special=1, special_chars_required=True, special_characters="!@#$%^&*()_-=+`~,./'[]<>?{}|\\"):
     """Determine if password is a valid password."""
-    count_lower = 0
-    count_upper = 0
-    count_digit = 0
-    count_special = 0
+    lowercase_count = 0
+    uppercase_count = 0
+    digit_count = 0
+    special_character_count = 0
     for char in password:
         if char.isupper():
-            count_upper += 1
+            uppercase_count += 1
         if char.islower():
-            count_lower += 1
+            lowercase_count += 1
         if char in special_characters:
-            count_special += 1
+            special_character_count += 1
         if char.isdigit():
-            count_digit += 1
+            digit_count += 1
     if len(password) < min_length or len(password) > max_length:
         return False
-    if count_upper < min_uppercase or count_lower < min_lowercase or count_digit < min_digit:
+    if uppercase_count < min_uppercase or lowercase_count < min_lowercase or digit_count < min_digit:
         return False
-    if special_chars_required and count_special < min_special:
+    if special_chars_required and special_character_count < min_special:
         return False
     return True
 
