@@ -37,7 +37,7 @@ def generate_word_from_word_format(word_format, vowels, consonants, vowel_wildca
         elif kind == vowel_wildcard:
             word += random.choice(vowels)
         else:
-            word += random.choice(vowels+consonants)
+            word += random.choice(vowels + consonants)
     return word
 
 
@@ -54,5 +54,6 @@ def generate_random_word_format(word_format_length, valid_characters):
     for i in range(word_format_length):
         word_format += random.choice(VALID_FORMAT_CHARACTERS)
     return word_format
+
 
 main()
