@@ -1,6 +1,6 @@
-
-NAMES = ["Abe", "Homer", "Marge", "Lisa", "Bart", "Maggie", "Mona"]
-AGES = [80, 84, 89, 8, 10, 2, 80]
+#
+# NAMES = ["Abe", "Homer", "Marge", "Lisa", "Bart", "Maggie", "Mona"]
+# AGES = [80, 84, 89, 8, 10, 2, 80]
 
 
 
