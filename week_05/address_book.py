@@ -12,9 +12,9 @@ def main():
     choice = input("What would you like to do? ").upper()
     while choice != "Q":
         if choice == "A":
-            add_address_to_dictionary()
+            add_address_to_dictionary(name_to_address)
         elif choice == "C":
-            change_key_value_pair()
+            change_value_in_dictionary()
         elif choice == "P":
             print_address_from_dictionary()
         else:
@@ -25,13 +25,18 @@ def main():
     print("Farewell")
 
 
-def add_address_to_dictionary():
+def add_address_to_dictionary(dictionary):
+    """Add name to address pair to dictionary."""
     name = get_valid_string("name")
     address = get_valid_string("address")
-    print(f"{name} {address}")
+    if name in dictionary.keys():
+        print("Name already in dictionary")
+    else:
+        dictionary[name] = address
+    print(f"{name} added to address book with address: {address}")
 
 
-def change_key_value_pair(dictionary):
+def change_value_in_dictionary(dictionary):
     print("Change address")
 
 
@@ -40,6 +45,7 @@ def print_address_from_dictionary():
 
 
 def get_valid_string(prompt):
+    """Gets a non-empty string."""
     string = input(f"Enter {prompt}: ")
     while string == "":
         print(f"Invalid {prompt}")
