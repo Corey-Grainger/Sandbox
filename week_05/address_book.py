@@ -14,9 +14,9 @@ def main():
         if choice == "A":
             add_address_to_dictionary(name_to_address)
         elif choice == "C":
-            change_value_in_dictionary()
+            change_value_in_dictionary(name_to_address)
         elif choice == "P":
-            print_address_from_dictionary()
+            print_address_from_dictionary(name_to_address)
         else:
             print("Invalid selection")
         print(MENU)
@@ -37,11 +37,20 @@ def add_address_to_dictionary(dictionary):
 
 
 def change_value_in_dictionary(dictionary):
-    print("Change address")
+    """Changes the value for a key in dictionary."""
+    name = get_valid_string("name to change")
+    if name in dictionary.keys():
+        dictionary[name] = get_valid_string("new address")
+    else:
+        print(f"{name} not in address book")
 
 
-def print_address_from_dictionary():
-    print("Print address")
+def print_address_from_dictionary(dictionary):
+    name = get_valid_string("name")
+    try:
+        print(f"{name}'s address is: {dictionary[name]}")
+    except KeyError:
+        print("Name not in dictionary.")
 
 
 def get_valid_string(prompt):
