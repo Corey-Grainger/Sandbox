@@ -5,7 +5,7 @@ class User:
         self.score = score
 
     def __repr__(self):
-        return (f"{self.name} Tacos: {self.number_of_tacos} Score: {self.score}")
+        return f"{self.name} Tacos: {self.number_of_tacos} Score: {self.score}"
 
     def give_taco(self, recipient):
         self.number_of_tacos -= 1
