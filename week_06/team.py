@@ -6,7 +6,7 @@ class Team:
         self.users = users
         self.name = name
 
-    def __repr__(self):
+    def __str__(self):
         return f"Team {self.name}"
 
     def add(self, user_name):
@@ -16,3 +16,4 @@ class Team:
         for user in self.users:
             if user.name == user_name:
                 self.users.remove(user)
+

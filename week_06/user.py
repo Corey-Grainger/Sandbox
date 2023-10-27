@@ -1,11 +1,15 @@
 class User:
     def __init__(self, name="", number_of_tacos=5, score=0):
+        """User class"""
         self.name = name
         self.number_of_tacos = number_of_tacos
         self.score = score
 
-    def __repr__(self):
+    def __str__(self):
         return f"{self.name} Tacos: {self.number_of_tacos} Score: {self.score}"
+
+    def __repr__(self):
+        return str(self)
 
     def give_taco(self, recipient):
         self.number_of_tacos -= 1
